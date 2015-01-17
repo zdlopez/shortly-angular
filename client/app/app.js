@@ -7,6 +7,10 @@ angular.module('shortly', [
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
+    .when('/', {
+      template: './index.html',
+      controller: 'LinksController'
+    })
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
@@ -14,6 +18,18 @@ angular.module('shortly', [
     .when('/signup', {
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
+    })
+    .when('/api/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .when('/create', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
+    .otherwise({
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
     })
     // Your code here
 

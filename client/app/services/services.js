@@ -11,6 +11,17 @@ angular.module('shortly.services', [])
     })
   };
 
+  linksFactory.addLink = function(url){
+    var sendLink = {url: url};
+    return $http({
+      url: '/api/links',
+      method: 'POST',
+      data:  sendLink})
+    .then(function(response){
+      return response.data;
+    })
+  };
+
   return linksFactory;
 })
 .factory('Auth', function ($http, $location, $window) {

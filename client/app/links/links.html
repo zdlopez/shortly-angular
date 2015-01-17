@@ -1,6 +1,6 @@
 <div id='container' ng-controller='LinksController'>
-  <input class="search" ng-model='search'>
-  <div class='link info' ng-repeat="link in data.links | filter:search">
+  <input class="search" ng-model='search' placeholder="Enter a search...">
+  <div class='link info' ng-repeat="link in data.links | filter:search | orderBy: '-visits'">
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>

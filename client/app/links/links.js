@@ -1,15 +1,14 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, $http, Links) {
+.controller('LinksController', function ($scope, Links) {
   // Your code here
   $scope.data = {};
+  angular.extend($scope, Links);
 
-  $scope.getLinks = function() {
-    $http.get('/api/links')
-    .then(function(response) {
-      $scope.data.links = response.data;
-    })
-  };
 
-  $scope.getLinks();
+
+  $scope.getLinks()
+  .then(function(data){
+    $scope.data.links = data;
+  });
 });

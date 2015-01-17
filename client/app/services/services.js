@@ -1,6 +1,6 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $location) {
   // Your code here
   var linksFactory = {};
 
@@ -9,6 +9,10 @@ angular.module('shortly.services', [])
     .then(function(response) {
       return response.data;
     })
+  };
+
+  linksFactory.getLink = function(link) {
+    link.visits += 1;
   };
 
   // linksFactory.addLink = function(url){

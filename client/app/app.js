@@ -8,7 +8,7 @@ angular.module('shortly', [
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
-      template: 'app/links/links.html',
+      templateUrl: 'app/links/links.html',
       controller: 'LinksController'
     })
     .when('/signin', {
@@ -20,6 +20,14 @@ angular.module('shortly', [
       controller: 'AuthController'
     })
     .when('/create', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
+    .when('/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
